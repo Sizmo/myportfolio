@@ -6,16 +6,50 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow: hidden;
+}
+
+.main-container {
+  display: flex;
+}
+
 .door-container {
-  /* perspective: 500px; */
+  position: relative;
+}
+
+.temperature-title,
+.temperature-reading,
+.sanitise-btn {
+  color: #fff;
+  background: #cb997e;
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
 }
 
 .temperature-title {
-  color: #fff;
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  left: 40%;
+  top: 10%;
+  max-width: 320px;
+  padding-bottom: 0.15em;
+}
+
+.temperature-reading {
+  max-width: 240px;
+  color: rgb(43, 255, 43);
+  top: 20%;
+  font-size: 5rem;
+}
+
+.sanitise-btn {
+  max-width: clamp(340px, 50vw, 900px);
+  font-size: clamp(2rem, 5vw, 6rem);
+  top: 80%;
+  cursor: pointer;
+  border: 2px solid red;
 }
 
 .door {

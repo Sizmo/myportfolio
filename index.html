@@ -3,16 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./images/favicon_io/site.webmanifest" />
     <title>Simon Ackerberg | Web Dev</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
   </head>
   <body>
-    <div class="door-container">
-      <h1 class="temperature-title">Your temperature is:</h1>
-      <p id="temperature-reading"></p>
-      <audio src="./audio/scanner-beep.mp3" id="scanner-beep"></audio>
-      <div id="door" class="door"></div>
+    <audio src="./audio/scanner-beep.mp3" id="scanner-beep"></audio>
+
+    <div class="main-container">
+      <div>
+        <div id="temp-container">
+          <h1 class="temperature-title">Your temperature is:</h1>
+          <p id="temperature-reading" class="temperature-reading">--</p>
+          <a id="sanitise-btn" class="sanitise-btn">PLEASE SANITISE!</a>
+          <audio src="./audio/sanitiser.wav" id="sanitise-audio"></audio>
+        </div>
+
+        <div id="door-container" class="door-container">
+          <div id="door" class="door"></div>
+        </div>
+      </div>
+
+      <main>
+        <h1>Hi, i'm Simon</h1>
+        <h2>Welcome to my portfolio!</h2>
+      </main>
     </div>
+
     <script src="index.js"></script>
   </body>
 </html>
