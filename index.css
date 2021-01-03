@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.door-container {
+  /* perspective: 500px; */
+}
+
+.temperature-title {
+  color: #fff;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 40%;
+}
+
+.door {
+  height: 100vh;
+  width: 100vw;
+  background: url(./images/sliding-door.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.door-animation {
+  animation-name: opendoor;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes opendoor {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
