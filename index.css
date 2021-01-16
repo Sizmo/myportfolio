@@ -1,3 +1,15 @@
+:root {
+  --black: #0f110c;
+  --white: #fdecef;
+  --grey: #cecccc;
+  --purple: #a4508b;
+  --dark-purple: #5f0a87;
+  --obamas-bg: #a4508b;
+  --obamas-resignation: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+  --obamas-bg-alt: #5f0a87;
+  --obamas-reverse: linear-gradient(326deg, #5f0a87 0%, #a4508b 74%);
+}
+
 *,
 *::before,
 *::after {
@@ -6,74 +18,391 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background: var(--white);
 }
 
-.main-container {
+a {
+  text-decoration: none;
+}
+
+.jumbotron,
+.container {
+  padding: 0 2em;
+}
+
+.jumbotron {
   display: flex;
+  align-items: center;
+  height: 100vh;
+  font-weight: 400;
 }
 
-.door-container {
+.container {
+  max-width: 900px;
+  width: 80%;
+  margin: auto;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 0.5em;
+  line-height: 1.25;
+  animation: slidein-left 1.5s, fadein 2s;
+}
+
+.name {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-color: var(--obamas-bg);
+  background-image: var(--obamas-resignation);
+}
+
+.cta {
+  text-align: left;
+  animation: slowfadein 3.5s;
+}
+
+.cta-btn {
+  display: inline-block;
+  position: relative;
+  padding: 0.5em 1.5em;
+  font-weight: 700;
+  z-index: 1;
+  border: 3px solid var(--dark-purple);
+  color: var(--dark-purple);
+  transition: color 0.5s;
+}
+
+.cta-btn:hover {
+  color: var(--white);
+}
+
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #a4508b;
+  background-image: linear-gradient(146deg, #a4508b 0%, #5f0a87 100%);
+  z-index: -1;
+  transform: scale(0);
+  transform-origin: top left;
+  transition: all 0.5s;
+}
+
+.cta-btn:hover::before,
+.cta-btn:focus::before {
+  transform: scale(1);
+}
+
+.section {
+  padding: 3em 0 5em;
+}
+
+.section-title {
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1em;
+  letter-spacing: 5px;
+}
+
+.about-me,
+.contact-me {
+  background-color: #a4508b;
+  background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 100%);
+  color: #fff;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.portfolio-pic {
+  width: 50%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-me-text {
+  width: 50%;
+}
+
+.about-me-text p {
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+.resume {
+  text-align: left;
+}
+
+.github-btn {
+  margin-right: 0.5em;
+  font-size: 1.25rem;
+  /* padding: 0; */
+}
+
+.resume-btn {
+  display: inline-block;
+  position: relative;
+  padding: 0.5em 1.5em;
+  font-weight: 700;
+  z-index: 1;
+  border: 3px solid var(--white);
+  color: var(--white);
+  transition: color 0.5s;
+}
+.resume-btn:hover {
+  color: var(--purple);
+}
+
+.resume-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  z-index: -1;
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: all 0.5s;
+}
+
+.resume-btn:hover::before,
+.resume-btn:focus::before {
+  transform: scale(1);
+}
+
+.project-section {
+  text-align: left;
+  margin-bottom: 4em;
+}
+
+.project-title {
+  font-size: 1.75rem;
+  margin-bottom: 0.25em;
+  font-weight: 600;
+}
+
+.project-description {
+  margin-bottom: 1.5em;
+  font-size: 1.1rem;
+  letter-spacing: 0.4px;
+  width: 100%;
+}
+
+.project-links {
+  margin-bottom: 2.5em;
+}
+
+.website-link {
+  display: inline-block;
+  position: relative;
+  padding: 0.25em 1.5em;
+  font-weight: 700;
+  z-index: 1;
+  border: 3px solid var(--dark-purple);
+  color: var(--dark-purple);
+  transition: color 0.5s;
+}
+
+.website-link:hover {
+  color: var(--white);
+}
+
+.website-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #a4508b;
+  background-image: linear-gradient(146deg, #a4508b 0%, #5f0a87 100%);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.5s;
+}
+
+.website-link:hover::before,
+.website-link:focus::before {
+  transform: scaleX(1);
+}
+
+.website-repository-link {
+  padding: 0.25em 1.5em;
+  margin-left: 0.5em;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  background-color: var(--obamas-bg);
+  background-image: var(--obamas-resignation);
+  transition: margin-left 0.5s;
+}
+
+.website-repository-link:hover {
+  margin-left: 1em;
+}
+
+.website-image {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  transition: all 0.5s;
+}
+
+.website-image:hover {
+  box-shadow: 10px 10px 10px var(--purple);
+}
+
+.contact-text {
+  font-size: 1.5rem;
+  max-width: 60ch;
+  font-weight: 300;
+  margin-bottom: 1em;
+}
+
+.contact-btn {
+  display: inline-block;
+  position: relative;
+  padding: 0.25em 1.5em;
+  font-size: 1.25rem;
+  font-weight: 700;
+  z-index: 1;
+  border: 3px solid var(--white);
+  color: var(--white);
+  transition: color 0.5s;
+}
+
+.contact-btn:hover {
+  color: var(--purple);
+}
+
+.contact-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: all 0.5s;
+}
+
+.contact-btn:hover::before,
+.contact-btn:focus::before {
+  transform: scaleX(1);
+}
+
+.footer {
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+.social-media-links-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
   position: relative;
 }
 
-.temperature-title,
-.temperature-reading,
-.sanitise-btn {
-  color: #fff;
-  background: #cb997e;
-  position: absolute;
-  z-index: 10;
-  left: 0;
-  right: 0;
-  margin: auto;
-  text-align: center;
-}
-
-.temperature-title {
-  top: 10%;
-  max-width: 320px;
-  padding-bottom: 0.15em;
-}
-
-.temperature-reading {
-  max-width: 240px;
-  color: rgb(43, 255, 43);
-  top: 20%;
-  font-size: 5rem;
-}
-
-.sanitise-btn {
-  max-width: clamp(340px, 50vw, 900px);
-  font-size: clamp(2rem, 5vw, 6rem);
-  top: 80%;
+.footer-icons {
+  margin: 1em;
+  transition: border 0.5s;
+  border-radius: 100%;
+  border: 1px solid transparent;
+  padding: 1em;
   cursor: pointer;
-  border: 2px solid red;
+  color: var(--white);
 }
 
-.door {
-  height: 100vh;
-  width: 100vw;
-  background: url(./images/sliding-door.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+.footer-icons:hover {
+  border: 1px solid var(--grey);
 }
 
-.door-animation {
-  animation-name: opendoor;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+.copyright {
+  border-top: 1px solid var(--grey);
+  width: 25vw;
+  margin: 0 auto 2em;
+  padding-top: 0.5em;
+}
+#myBtn {
+  background-color: var(--black); /* Set a background color */
+  color: var(--grey); /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 1em; /* Some padding */
+  margin: 2em auto 0;
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  /* width: 20px; */
 }
 
-@keyframes opendoor {
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+@keyframes slidein-left {
+  from {
+    margin-left: -100vw;
+  }
+  to {
+    margin-left: initial;
+  }
+}
+
+@keyframes slidein-right {
+  from {
+    margin-left: 200vw;
+  }
+  to {
+    margin-left: initial;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slowfadein {
   0% {
-    transform: translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
   }
 
   100% {
-    transform: translateX(-100%);
+    opacity: 1;
   }
 }

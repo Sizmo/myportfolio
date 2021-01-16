@@ -1,42 +1,23 @@
-const get = (e) => document.getElementById(e)
+//Get the button:
+mybutton = document.getElementById('myBtn')
 
-const door = get('door')
-const doorContainer = get('door-container')
-const beep = get('scanner-beep')
-const temp = get('temperature-reading')
-const tempContainer = get('temp-container')
-const sanitiseBtn = get('sanitise-btn')
-const sanitiseAudio = get('sanitise-audio')
-
-beep.volume = 0.1
-beep.play()
-
-const temperature = (min, max) => {
-  let num = Math.random() * (max - min) + min
-  let randomTemp = Math.round(num * 10) / 10
-  temp.textContent = `${randomTemp}°C`
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction()
 }
 
-setTimeout(timer, 2000)
-function timer() {
-  temperature(35, 38)
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = 'block'
+  } else {
+    mybutton.style.display = 'none'
+  }
 }
 
-let sanitise = false
-
-sanitiseBtn.addEventListener('click', () => {
-  sanitise = true
-  sanitiseBtn.style.borderColor = 'green'
-  sanitiseBtn.textContent = 'WELCOME!'
-  sanitiseAudio.play()
-  setInterval(doorOpenTimer, 1500)
-})
-
-function doorOpenTimer() {
-  door.classList.add('door-animation')
-  tempContainer.style.display = 'none'
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0 // For Safari
+  document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
 }
 
-door.addEventListener('animationend', () => {
-  doorContainer.style.display = 'none'
-})
+mybutton.addEventListener('click', topFunction)
