@@ -56,6 +56,7 @@ a {
   text-align: left;
   margin-bottom: 0.5em;
   line-height: 1.25;
+  -webkit-animation: slidein-left 1.5s, fadein 2s;
   animation: slidein-left 1.5s, fadein 2s;
 }
 
@@ -69,6 +70,7 @@ a {
 
 .cta {
   text-align: left;
+  -webkit-animation: slowfadein 3.5s;
   animation: slowfadein 3.5s;
 }
 
@@ -130,6 +132,7 @@ a {
   justify-content: center;
   align-items: center;
   gap: 2em;
+  flex-direction: column;
 }
 
 .portfolio-pic {
@@ -140,15 +143,11 @@ a {
 }
 
 .about-me-text {
-  width: 50%;
+  width: 70%;
 }
 
 .about-me-text p {
   margin-bottom: 1em;
-  text-align: left;
-}
-
-.resume {
   text-align: left;
 }
 
@@ -353,23 +352,40 @@ a {
   padding-top: 0.5em;
 }
 #myBtn {
-  background-color: var(--black); /* Set a background color */
-  color: var(--grey); /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 1em; /* Some padding */
+  background-color: var(--black);
+  color: var(--grey);
+  cursor: pointer;
+  padding: 1em;
   margin: 2em auto 0;
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-  /* width: 20px; */
+  border-radius: 10px;
+  font-size: 18px;
 }
 
 #myBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
+  background-color: #555;
+}
+
+@-webkit-keyframes slidein-left {
+  from {
+    margin-left: -100vw;
+  }
+  to {
+    margin-left: initial;
+  }
 }
 
 @keyframes slidein-left {
   from {
     margin-left: -100vw;
+  }
+  to {
+    margin-left: initial;
+  }
+}
+
+@-webkit-keyframes slidein-right {
+  from {
+    margin-left: 200vw;
   }
   to {
     margin-left: initial;
@@ -385,11 +401,33 @@ a {
   }
 }
 
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
   }
   to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slowfadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+
+  100% {
     opacity: 1;
   }
 }
@@ -404,5 +442,18 @@ a {
 
   100% {
     opacity: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+  }
+  .about-me-text {
+    width: 50%;
+  }
+
+  .resume {
+    text-align: left;
   }
 }
