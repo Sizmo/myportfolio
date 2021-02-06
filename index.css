@@ -264,6 +264,7 @@ a {
 }
 
 .website-image {
+  position: relative;
   width: 100%;
   max-width: 900px;
   height: auto;
@@ -271,6 +272,7 @@ a {
 }
 
 .website-image:hover {
+  transform: translate(-10px, -10px);
   box-shadow: 10px 10px 10px var(--purple);
 }
 
